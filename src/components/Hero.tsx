@@ -79,7 +79,7 @@ export function Hero() {
 
         <div className={styles.coverWrap}>
           <img
-            src={`${import.meta.env.BASE_URL}seeyouagain-axel.png`}
+            src={`${import.meta.env.BASE_URL}seeyouagain-couple.png`}
             alt="Retrato estilo Flower Boy"
             className={styles.coverArt}
           />
