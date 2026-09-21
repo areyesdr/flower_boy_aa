@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34153a"/>
+      <stop offset="100%" stop-color="#16081c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffd34d" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffd34d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="400" cy="280" r="230" fill="url(#glow)"/>
+  <text x="400" y="520" fill="#ffd34d" font-family="Georgia, serif" font-size="44" text-anchor="middle">Momento 4</text>
+  <text x="400" y="560" fill="#fde68a" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Reemplaza este placeholder con tu foto</text>
+  <g transform="translate(400 280)">
+    <g fill="#ffe14d" stroke="#e8a00a" stroke-width="4">
+      <ellipse cx="0" cy="-70" rx="34" ry="74"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-70" rx="34" ry="74" transform="rotate(315)"/>
+    </g>
+    <circle r="46" fill="#c9922e"/>
+    <circle r="30" fill="#8a5a00"/>
+  </g>
+</svg>

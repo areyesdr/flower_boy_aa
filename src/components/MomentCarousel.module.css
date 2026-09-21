@@ -1,0 +1,381 @@
+.section {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 80px 22px 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.kicker {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--yellow-warm);
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(38px, 6vw, 54px);
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #ffffff 0%, #fde68a 60%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro {
+  color: var(--text-muted);
+  margin: 12px auto 0;
+  font-size: 18px;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* View Mode Switcher Pills */
+.modeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 4px;
+  background: rgba(26, 12, 30, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.toggleBtn:hover {
+  color: #fff;
+}
+
+.toggleActive {
+  background: var(--yellow-warm);
+  color: #271103;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+}
+
+/* CAROUSEL MODE */
+.carouselWrap {
+  margin-top: 10px;
+}
+
+.carouselStage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.slideContainer {
+  width: min(100%, 540px);
+  position: relative;
+  min-height: 510px;
+  display: flex;
+  justify-content: center;
+}
+
+.navArrow {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  background: rgba(38, 17, 44, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--yellow-warm);
+  font-size: 30px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4),
+    0 0 14px rgba(245, 158, 11, 0.15);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.navArrow:hover {
+  background: rgba(245, 158, 11, 0.28);
+  border-color: rgba(251, 191, 36, 0.85);
+  transform: scale(1.08);
+}
+
+.navArrow:active {
+  transform: scale(0.96);
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.dot:hover {
+  transform: scale(1.3);
+  border-color: var(--yellow-warm);
+}
+
+.dotActive {
+  background: var(--yellow-warm);
+  border-color: var(--yellow-warm);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+  transform: scale(1.25);
+}
+
+/* STANDARDIZED CARD DIMENSIONS (Exact same height for all cards) */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(251, 191, 36, 0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(40, 19, 46, 0.88) 0%,
+    rgba(22, 10, 26, 0.94) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(245, 158, 11, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cute decorative scrapbook washi tape */
+.tape {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 18px;
+  background: rgba(254, 240, 138, 0.5);
+  border: 1px dashed rgba(245, 158, 11, 0.7);
+  border-radius: 3px;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+  background: #180a1c;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(38, 17, 30, 0.45) 100%
+  );
+}
+
+.counterBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(24, 10, 28, 0.8);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--yellow-warm);
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 4;
+}
+
+/* Standardized Body: All cards have the exact same height and flex structure */
+.body {
+  padding: 18px 24px 22px;
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.date {
+  color: var(--yellow-warm);
+  font-family: 'Story Script', cursive;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.momentStamp {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: rgba(254, 240, 138, 0.65);
+  text-transform: uppercase;
+}
+
+.title {
+  color: #fff;
+  font-family: 'Mouse Memoirs', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  margin: 3px 0 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.message {
+  color: var(--text-warm);
+  opacity: 0.9;
+  line-height: 1.65;
+  font-size: 14.5px;
+  margin: 0;
+}
+
+/* LIST MODE (Strictly uniform 80px gap, no spring collisions) */
+.listStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.listCardItem {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelineDivider {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.timelineStem {
+  width: 2px;
+  height: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(251, 191, 36, 0.5),
+    rgba(251, 191, 36, 0.1)
+  );
+  border-radius: 1px;
+}
+
+.timelineFlower {
+  font-size: 16px;
+  animation: pulse-flower 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-flower {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 60px 16px 20px;
+  }
+
+  .carouselStage {
+    gap: 8px;
+  }
+
+  .navArrow {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .slideContainer {
+    min-height: 480px;
+  }
+
+  .body {
+    padding: 14px 18px 18px;
+    min-height: 160px;
+  }
+
+  .toggleBtn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

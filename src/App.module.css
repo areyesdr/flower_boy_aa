@@ -1,0 +1,40 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px 110px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(251, 191, 36, 0.2);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(17, 8, 26, 0.7) 100%
+  );
+  position: relative;
+  z-index: 2;
+}
+
+.footerText {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-warm);
+  opacity: 0.85;
+}
+
+.footerFlower {
+  font-size: 16px;
+}

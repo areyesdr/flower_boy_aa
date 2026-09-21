@@ -1,0 +1,250 @@
+.dock {
+  position: fixed;
+  z-index: 80;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  width: min(460px, calc(100vw - 20px));
+  padding: 8px 14px 8px;
+  border-radius: 18px;
+  background: rgba(26, 11, 30, 0.9);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fdf6e3;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(245, 158, 11, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ROW 1: Song Info + Volume Control + Play/Pause */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 32px;
+}
+
+.songInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.songTitle {
+  font-family: 'Story Script', cursive;
+  font-size: 15px;
+  color: var(--yellow-warm);
+  margin: 0;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.songArtist {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: rgba(254, 240, 138, 0.6);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Volume Group */
+.volumeGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(18, 7, 22, 0.65);
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.volBtn {
+  border: none;
+  background: transparent;
+  color: var(--yellow-warm);
+  font-size: 12px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.volBtn:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.volSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 55px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(251, 191, 36, 0.25);
+  outline: none;
+  cursor: pointer;
+}
+
+.volSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--yellow-warm);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.volSlider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+.volSlider::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: var(--yellow-warm);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+  cursor: pointer;
+}
+
+.volPercent {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: rgba(254, 240, 138, 0.8);
+  min-width: 24px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mute Hint Button */
+.muteHint {
+  background: rgba(255, 209, 77, 0.18);
+  border: 1px solid rgba(255, 209, 77, 0.5);
+  color: var(--yellow-warm);
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  animation: pulseMute 2s infinite ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+@keyframes pulseMute {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+    border-color: rgba(251, 191, 36, 0.9);
+  }
+}
+
+/* Play/Pause Button */
+.fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 11px;
+  color: #1a0e04;
+  background: var(--yellow-warm);
+  box-shadow: 0 2px 8px rgba(255, 209, 77, 0.4);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  background: var(--yellow-soft);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+/* ROW 2: SINGLE ACTIVE LYRIC LINE */
+.lyricRow {
+  border-top: 1px solid rgba(251, 191, 36, 0.18);
+  padding-top: 4px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.lyricText {
+  margin: 0;
+  font-family: 'Mouse Memoirs', 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.6));
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 440px) {
+  .dock {
+    top: 10px;
+    width: calc(100vw - 16px);
+    padding: 7px 10px 7px;
+  }
+
+  .songArtist {
+    display: none;
+  }
+
+  .volSlider {
+    width: 42px;
+  }
+
+  .volPercent {
+    display: none;
+  }
+
+  .lyricText {
+    font-size: 15.5px;
+  }
+}

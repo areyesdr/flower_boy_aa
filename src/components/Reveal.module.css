@@ -1,0 +1,29 @@
+.base {
+  opacity: 0;
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: transform;
+}
+
+.from--up {
+  transform: translateY(38px);
+}
+
+.from--left {
+  transform: translateX(-52px);
+}
+
+.from--right {
+  transform: translateX(52px);
+}
+
+.from--scale {
+  transform: scale(0.86);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
