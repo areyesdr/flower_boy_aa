@@ -68,7 +68,7 @@ export function Hero() {
         <div className={styles.badgeWrap}>
           <span className={styles.badge}>
             <span className={styles.badgeIcon}>🌻</span>
-            <span className={styles.badgeText}>21 DE SEPTIEMBRE · DÍA DE LAS FLORES AMARILLAS</span>
+            <span className={styles.badgeText}>DÍA DE LAS FLORES AMARILLAS</span>
             <span className={styles.badgeIcon}>✨</span>
           </span>
         </div>

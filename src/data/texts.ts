@@ -1,13 +1,12 @@
 export const siteTexts = {
   hero: {
-    badge: '21 de Septiembre · Flores Amarillas',
+    badge: 'Flores Amarillas · Para ti',
     title: 'Flores para ti',
     subtitle:
-      'Porque hoy 21 de septiembre florece la primavera y es la tradición de regalar flores amarillas: aquí tienes un jardín eterno que nunca se marchita, hecho con todo mi amor para ti.',
+      'Porque la primavera florece y en la tradición de regalar flores amarillas: aquí tienes un jardín eterno que nunca se marchita, hecho con todo mi amor para ti.',
     cta: 'Ver nuestros momentos',
   },
   moments: {
-    heading: 'Nuestros momentos',
     intro: 'Cada uno guarda un pedacito inolvidable de nosotros dos.',
     hint: 'Sigue scrolleando',
   },
@@ -33,5 +32,5 @@ export const siteTexts = {
     ],
     signature: '— Con todo mi cariño',
   },
-  footer: 'Hecho con cariño para ti · 21 de Septiembre 🌻',
+  footer: 'Hecho con cariño para ti 🌻',
 } as const

@@ -73,8 +73,6 @@ export function MomentCarousel() {
   return (
     <section className={styles.section} id="momentos">
       <header className={styles.header}>
-        <span className={styles.kicker}>🌻 21 DE SEPTIEMBRE · NUESTROS MOMENTOS 🌻</span>
-        <h2 className={styles.heading}>{siteTexts.moments.heading}</h2>
         <p className={styles.intro}>{siteTexts.moments.intro}</p>
 
         {/* View Mode Switcher */}
