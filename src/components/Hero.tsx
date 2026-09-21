@@ -7,8 +7,12 @@ import styles from './Hero.module.css'
 export function Hero() {
   const [unlocked, setUnlocked] = useState(false)
 
-  // Lock scroll until the CTA button is pressed
+  // Lock scroll until the CTA button is pressed; always start at the top
   useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
