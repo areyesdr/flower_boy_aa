@@ -1,12 +1,11 @@
 .dock {
   position: fixed;
   z-index: 80;
-  left: 50%;
+  left: 14px;
   top: 14px;
-  transform: translateX(-50%);
-  width: min(460px, calc(100vw - 20px));
-  padding: 8px 14px 8px;
-  border-radius: 18px;
+  width: min(320px, calc(100vw - 24px));
+  padding: 6px 10px 5px 12px;
+  border-radius: 14px;
   background: rgba(26, 11, 30, 0.9);
   border: 1px solid rgba(251, 191, 36, 0.45);
   backdrop-filter: blur(14px);
@@ -17,7 +16,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -27,7 +26,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 32px;
+  min-height: 26px;
 }
 
 .songInfo {
@@ -41,7 +40,7 @@
 
 .songTitle {
   font-family: 'Story Script', cursive;
-  font-size: 15px;
+  font-size: 13px;
   color: var(--yellow-warm);
   margin: 0;
   white-space: nowrap;
@@ -50,7 +49,7 @@
 
 .songArtist {
   font-family: 'Poppins', sans-serif;
-  font-size: 11px;
+  font-size: 9.5px;
   color: rgba(254, 240, 138, 0.6);
   margin: 0;
   white-space: nowrap;
@@ -61,26 +60,34 @@
 .controls {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
 }
 
-/* Volume Group */
+/* Volume Group: collapsed by default, expands on hover/focus */
 .volumeGroup {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   background: rgba(18, 7, 22, 0.65);
-  padding: 3px 8px;
+  padding: 2px 5px;
   border-radius: 999px;
   border: 1px solid rgba(251, 191, 36, 0.25);
+  max-width: 22px;
+  overflow: hidden;
+  transition: max-width 0.22s ease;
+}
+
+.volumeGroup:hover,
+.volumeGroup:focus-within {
+  max-width: 120px;
 }
 
 .volBtn {
   border: none;
   background: transparent;
   color: var(--yellow-warm);
-  font-size: 12px;
+  font-size: 11px;
   padding: 0;
   cursor: pointer;
   display: flex;
@@ -98,19 +105,29 @@
 .volSlider {
   -webkit-appearance: none;
   appearance: none;
-  width: 55px;
-  height: 4px;
+  width: 0;
+  max-width: 0;
+  height: 3px;
   border-radius: 2px;
   background: rgba(251, 191, 36, 0.25);
   outline: none;
   cursor: pointer;
+  opacity: 0;
+  transition: width 0.22s ease, opacity 0.22s ease;
+}
+
+.volumeGroup:hover .volSlider,
+.volumeGroup:focus-within .volSlider {
+  width: 52px;
+  max-width: 52px;
+  opacity: 1;
 }
 
 .volSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--yellow-warm);
   box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
@@ -123,8 +140,8 @@
 }
 
 .volSlider::-moz-range-thumb {
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: none;
   background: var(--yellow-warm);
@@ -134,11 +151,39 @@
 
 .volPercent {
   font-family: 'Poppins', sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   color: rgba(254, 240, 138, 0.8);
-  min-width: 24px;
+  width: 0;
+  overflow: hidden;
   text-align: right;
   font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  white-space: nowrap;
+}
+
+.volumeGroup:hover .volPercent,
+.volumeGroup:focus-within .volPercent {
+  opacity: 1;
+  width: 24px;
+}
+
+/* Hover-less devices (touch): always show the volume slider */
+@media (hover: none) {
+  .volumeGroup {
+    max-width: none;
+  }
+
+  .volSlider {
+    width: 44px;
+    max-width: 44px;
+    opacity: 1;
+  }
+
+  .volPercent {
+    opacity: 1;
+    width: 24px;
+  }
 }
 
 /* Mute Hint Button */
@@ -146,9 +191,9 @@
   background: rgba(255, 209, 77, 0.18);
   border: 1px solid rgba(255, 209, 77, 0.5);
   color: var(--yellow-warm);
-  padding: 3px 7px;
+  padding: 2px 6px;
   border-radius: 999px;
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   cursor: pointer;
@@ -176,13 +221,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex: none;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 10px;
   color: #1a0e04;
   background: var(--yellow-warm);
   box-shadow: 0 2px 8px rgba(255, 209, 77, 0.4);
@@ -201,8 +246,8 @@
 /* ROW 2: SINGLE ACTIVE LYRIC LINE */
 .lyricRow {
   border-top: 1px solid rgba(251, 191, 36, 0.18);
-  padding-top: 4px;
-  height: 26px;
+  padding-top: 3px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,7 +258,7 @@
 .lyricText {
   margin: 0;
   font-family: 'Mouse Memoirs', 'Poppins', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.2;
   color: #fff;
   text-align: center;
@@ -228,23 +273,31 @@
 @media (max-width: 440px) {
   .dock {
     top: 10px;
-    width: calc(100vw - 16px);
-    padding: 7px 10px 7px;
+    left: 6px;
+    width: calc(100vw - 12px);
+    padding: 6px 8px 5px 10px;
   }
 
   .songArtist {
     display: none;
   }
 
+  .volumeGroup {
+    max-width: none;
+  }
+
   .volSlider {
     width: 42px;
+    max-width: 42px;
+    opacity: 1;
   }
 
   .volPercent {
-    display: none;
+    opacity: 1;
+    width: 24px;
   }
 
   .lyricText {
-    font-size: 15.5px;
+    font-size: 14px;
   }
 }

@@ -11,43 +11,54 @@ export function MusicPlayer() {
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [volume, setVolume] = useState<number>(0.5) // Default 50%
 
-  // Muted autoplay on mount to conform to browser media policies
+  // Keep audio element volume in sync with state
+  useEffect(() => {
+    const el = audioRef.current
+    if (el) el.volume = volume
+  }, [volume])
+
+  // Autoplay: try with sound first; fallback to muted and unmute on first gesture
   useEffect(() => {
     const el = audioRef.current
     if (!el) return
 
-    el.muted = true
-    el.volume = volume
-
     let isMounted = true
 
-    const tryAutoplay = () => {
+    const syncUiFromElement = () => {
+      if (!isMounted) return
+      setIsPlaying(!el.paused)
+      setIsMuted(el.muted)
+    }
+
+    const tryAutoplay = (withSound: boolean) => {
+      el.muted = !withSound
       const playPromise = el.play()
-      if (playPromise) {
-        playPromise
-          .then(() => {
-            if (isMounted) setIsPlaying(true)
-          })
-          .catch(() => {
-            if (isMounted) setIsPlaying(false)
-          })
-      }
+      if (!playPromise) return
+      playPromise
+        .then(() => syncUiFromElement())
+        .catch(() => {
+          if (withSound) {
+            tryAutoplay(false)
+          } else {
+            syncUiFromElement()
+          }
+        })
     }
 
     const onCanPlay = () => {
       if (el.paused && isMounted) {
-        tryAutoplay()
+        tryAutoplay(true)
       }
     }
 
     el.addEventListener('canplay', onCanPlay)
-    tryAutoplay()
+    tryAutoplay(true)
 
     return () => {
       isMounted = false
       el.removeEventListener('canplay', onCanPlay)
     }
-  }, [volume])
+  }, [])
 
   // Smooth fade-in volume up to current set volume level
   const fadeInVolume = useCallback(
@@ -72,10 +83,10 @@ export function MusicPlayer() {
     [volume]
   )
 
-  // Unmute on first user gesture anywhere on the page
+  // Unmute/start on the first user gesture anywhere on the page (including scroll)
   useEffect(() => {
     const el = audioRef.current
-    if (!el || !isMuted) return
+    if (!el) return
 
     const handleFirstGesture = () => {
       if (el.muted) {
@@ -88,13 +99,13 @@ export function MusicPlayer() {
       }
     }
 
-    const events = ['pointerdown', 'touchstart', 'click', 'keydown']
+    const events = ['pointerdown', 'touchstart', 'click', 'keydown', 'wheel']
     events.forEach((evt) => window.addEventListener(evt, handleFirstGesture, { once: true }))
 
     return () => {
       events.forEach((evt) => window.removeEventListener(evt, handleFirstGesture))
     }
-  }, [isMuted, fadeInVolume, volume])
+  }, [fadeInVolume, volume])
 
   // Continuous real-time synchronization engine (RAF + fallback interval)
   useEffect(() => {
@@ -254,7 +265,7 @@ export function MusicPlayer() {
     >
       <audio
         ref={audioRef}
-        src="/music/see_you_again.mp3"
+        src={`${import.meta.env.BASE_URL}music/see_you_again.mp3`}
         preload="auto"
         loop={false}
         playsInline

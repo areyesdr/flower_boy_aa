@@ -57,6 +57,13 @@
   opacity: 0.95;
 }
 
+.beeTopLeft {
+  position: absolute;
+  top: -22px;
+  right: -16px;
+  z-index: 2;
+}
+
 .posTopRight {
   position: absolute;
   right: 5%;
@@ -73,8 +80,8 @@
 
 .posMidBee {
   position: absolute;
-  right: 22%;
-  top: 26%;
+  left: 18%;
+  top: 22%;
   opacity: 0.9;
 }
 
@@ -83,6 +90,12 @@
   left: 6%;
   bottom: 11%;
   opacity: 0.92;
+}
+
+.beeBottomLeft {
+  position: absolute;
+  bottom: 58px;
+  left: -18px;
 }
 
 .posBottomRight {
@@ -282,7 +295,9 @@
   }
 
   .posMidBee {
-    display: none;
+    left: 6%;
+    top: 20%;
+    transform: scale(0.8);
   }
 
   .posBottomLeft {

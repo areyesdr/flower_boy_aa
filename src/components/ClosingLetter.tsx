@@ -9,6 +9,13 @@ export function ClosingLetter() {
     <section className={styles.letter} id="carta">
       {/* Decorative floating flower & bee near letter */}
       <div className={styles.decorLeft} aria-hidden="true">
+        <BumbleBee
+          size={34}
+          flip
+          duration={6}
+          delay={0.6}
+          className={styles.beeDecorLeft}
+        />
         <Flower size={110} rotate={18} duration={8} showGlow />
       </div>
       <div className={styles.decorRight} aria-hidden="true">

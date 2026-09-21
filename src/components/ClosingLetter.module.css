@@ -15,6 +15,13 @@
   z-index: 1;
 }
 
+.beeDecorLeft {
+  position: absolute;
+  top: -16px;
+  right: -18px;
+  z-index: 2;
+}
+
 .decorRight {
   position: absolute;
   right: -20px;

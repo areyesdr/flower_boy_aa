@@ -11,8 +11,15 @@ export function Hero() {
 
       {/* Decorative Sunflowers & Flower Boy Bees */}
       <div className={styles.floraField} aria-hidden="true">
-        {/* Top Left Major Sunflower */}
+        {/* Top Left Major Sunflower with hovering bee */}
         <div className={styles.posTopLeft}>
+          <BumbleBee
+            size={40}
+            flip
+            duration={5.5}
+            delay={1.1}
+            className={styles.beeTopLeft}
+          />
           <Flower size={180} rotate={14} duration={8} showGlow />
         </div>
 
@@ -28,13 +35,20 @@ export function Hero() {
           <Flower size={135} rotate={-20} duration={9} delay={0.6} showGlow />
         </div>
 
-        {/* Mid-floating free bee */}
+        {/* Mid-floating free bee (left side) */}
         <div className={styles.posMidBee}>
-          <BumbleBee size={38} duration={7} delay={1.8} />
+          <BumbleBee size={38} flip duration={7} delay={1.8} />
         </div>
 
-        {/* Bottom Left Sunflower */}
+        {/* Bottom Left Sunflower with bee */}
         <div className={styles.posBottomLeft}>
+          <BumbleBee
+            size={32}
+            flip
+            duration={6}
+            delay={2.3}
+            className={styles.beeBottomLeft}
+          />
           <Flower size={110} rotate={48} duration={7.5} delay={1.2} />
         </div>
 
