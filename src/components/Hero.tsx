@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react'
 import { Flower } from './Flower'
 import { BumbleBee } from './BumbleBee'
 import { siteTexts } from '../data/texts'
 import styles from './Hero.module.css'
 
 export function Hero() {
+  const [unlocked, setUnlocked] = useState(false)
+
+  // Lock scroll until the CTA button is pressed
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  const handleCta = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    document.body.style.overflow = ''
+    setUnlocked(true)
+    document.getElementById('momentos')?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <section className={styles.hero} id="inicio">
       {/* Sun flare backdrop */}
@@ -88,7 +105,11 @@ export function Hero() {
         <p className={styles.subtitle}>{siteTexts.hero.subtitle}</p>
 
         <div className={styles.ctaWrap}>
-          <a className={styles.cta} href="#momentos">
+          <a
+            className={`${styles.cta} ${unlocked ? styles.ctaDone : ''}`}
+            href="#momentos"
+            onClick={handleCta}
+          >
             <span className={styles.ctaText}>{siteTexts.hero.cta}</span>
             <span className={styles.ctaArrow}>↓</span>
           </a>
