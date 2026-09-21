@@ -178,6 +178,29 @@
   filter: drop-shadow(0 0 35px rgba(245, 158, 11, 0.45));
 }
 
+.coverWrap {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.coverArt {
+  width: min(230px, 60vw);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 3px solid rgba(251, 191, 36, 0.7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(245, 158, 11, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  transform: rotate(-2deg);
+  transition: transform 0.35s ease;
+}
+
+.coverArt:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
 .subtitle {
   margin: 22px auto 36px;
   font-size: clamp(17px, 2.3vw, 22px);

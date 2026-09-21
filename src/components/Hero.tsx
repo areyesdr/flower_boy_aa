@@ -77,6 +77,14 @@ export function Hero() {
           <span className={styles.titleGradient}>{siteTexts.hero.title}</span>
         </h1>
 
+        <div className={styles.coverWrap}>
+          <img
+            src={`${import.meta.env.BASE_URL}seeyouagain-axel.png`}
+            alt="Retrato estilo Flower Boy"
+            className={styles.coverArt}
+          />
+        </div>
+
         <p className={styles.subtitle}>{siteTexts.hero.subtitle}</p>
 
         <div className={styles.ctaWrap}>
