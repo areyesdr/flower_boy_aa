@@ -6,81 +6,81 @@ export const moments: Moment[] = [
   {
     id: 1,
     date: 'MOMENTO 01',
-    title: 'El comienzo de todo',
+    title: 'El inicio de nuestra historia',
     message:
-      'Todo empezó con una sonrisa y una conversación que no quería que terminara. Así de simple y así de importante.',
+      'Esa primera conversación, esa primera sonrisa y el momento exacto en que supe que no quería alejarme de ti. Ahí empezó todo.',
     photo: `${base}fotos/photo-01.png`,
   },
   {
     id: 2,
     date: 'MOMENTO 02',
-    title: 'Nuestro primer encuentro',
+    title: 'El "Sí" más importante de mi vida',
     message:
-      'Ese día el mundo se sintió más amable contigo al lado. Guardé cada detalle de esa fecha para siempre.',
+      'El momento en que el tiempo se detuvo. Un anillo que simboliza nuestra promesa y el inicio de un futuro increíble juntos.',
     photo: `${base}fotos/photo-02.jpg`,
   },
   {
     id: 3,
     date: 'MOMENTO 03',
-    title: 'Días contigo',
+    title: 'Donde quiero estar siempre',
     message:
-      'Las horas más tranquilas y a la vez las más felices. Contigo hasta el día más simple se vuelve memorable.',
+      'El tiempo a tu lado no se mide en horas, sino en felicidad. Contigo, los días más simples se convierten en mis mejores recuerdos.',
     photo: `${base}fotos/photo-03.png`,
   },
   {
     id: 4,
     date: 'MOMENTO 04',
-    title: 'Las pequeñas aventuras',
+    title: 'Nuestras pequeñas grandes aventuras',
     message:
-      'Cada camino, cada parada y cada risa improvisada. Aventuras que no necesitan planes, solo tu compañía.',
+      'Cada salida, cada risa improvisada y cada momento que compartimos se convierte en una aventura inolvidable. Solo necesito tu compañía.',
     photo: `${base}fotos/photo-04.jpg`,
   },
   {
     id: 5,
     date: 'MOMENTO 05',
-    title: 'Tu sonrisa',
+    title: 'Tu mirada me lo dice todo',
     message:
-      'De todas las cosas de este mundo, tu sonrisa sigue siendo mi favorita. No hay foto que le haga justicia.',
+      'No existe una foto que logre capturar la paz que me transmite tu sonrisa, pero esta es una de mis favoritas.',
     photo: `${base}fotos/photo-05.png`,
   },
   {
     id: 6,
     date: 'MOMENTO 06',
-    title: 'Los detalles que nadie ve',
+    title: 'Mi paz eres tú',
     message:
-      'Tu forma de preocuparte, de escuchar, de estar. Son los detalles que nadie más ve y los que más amo.',
+      'Hay momentos de paz que solo encuentro a tu lado. Gracias por ser mi refugio y mi alegría más grande.',
     photo: `${base}fotos/photo-06.jpg`,
   },
   {
     id: 7,
     date: 'MOMENTO 07',
-    title: 'A pesar de la distancia',
+    title: 'Cerca, sin importar la distancia',
     message:
-      'Aunque el camino a veces nos separe, siempre encontramos la forma de volver. Y eso lo vale todo.',
+      'Aunque no siempre estemos en el mismo lugar, cada mensaje y cada llamada me recuerdan que mi corazón está contigo. La distancia solo hace más fuerte lo que sentimos.',
     photo: `${base}fotos/photo-07.jpg`,
   },
   {
     id: 8,
     date: 'MOMENTO 08',
-    title: 'Contar los días',
+    title: 'La complicidad de nuestras selfies',
     message:
-      'Hay recuerdos que cuento como quien cuenta estrellas. Cada uno con nosotros dos y con su propia luz.',
+      'No importa el lugar ni la hora, una selfie juntos siempre captura nuestra conexión y la suerte que tengo de tenerte.',
     photo: `${base}fotos/photo-08.jpg`,
   },
   {
     id: 9,
     date: 'MOMENTO 09',
-    title: 'Lo que aprendo de ti',
+    title: 'Todo lo que aprendo de ti',
     message:
-      'Me enseñas a mirar las cosas con calma y con cariño. Contigo aprendo a ser mejor, cada día un poco más.',
+      'Me enseñas a ver el mundo con más calma y a valorar cada instante. Contigo aprendo a ser mi mejor versión cada día.',
     photo: `${base}fotos/photo-09.jpg`,
   },
   {
     id: 10,
     date: 'MOMENTO 10',
-    title: 'Y los que faltan por venir',
+    title: 'Nuestro camino juntos apenas comienza',
     message:
-      'Esto es solo una página; faltan muchas más. Este espacio siempre será nuestro refugio de momentos.',
+      'Esta es solo una página de nuestra historia. Estoy emocionado por todo lo que nos espera y por cada momento que seguiremos creando.',
     photo: `${base}fotos/photo-10.jpg`,
   },
 ]
